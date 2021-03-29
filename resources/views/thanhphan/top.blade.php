@@ -1,9 +1,15 @@
 	<div class="header">
-		<div class="header-left">
+		<!-- <div class="header-left">
+			<div class="menu-icon dw dw-menu ml-10"></div>
 			<div class="ml-5">
-				<h4 class="h4 text-danger">Trưởng {{Session::get('user_fullname')}} </h4>
+				
 			</div>
+		</div> -->
+		<div class="header-left">
+			<div class="menu-icon dw dw-menu mr-10 ml-20 pl-20"></div>
+			<div><h4 class="pl-20 pt-10 pb-10">{{Session::get('user_fullname')}}</h4></div>
 		</div>
+
 		<div class="header-right">
 			<div class="user-info-dropdown">
 				<div class="dropdown">

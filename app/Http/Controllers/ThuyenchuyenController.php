@@ -13,18 +13,34 @@ class ThuyenchuyenController extends Controller
 {
     public function show_chuyen_ds()
     {
-    	# code...
+    	$show = DB::table('tbl_doansinh')->get();
+        return view('thuyenchuyen.chuyen_ds')
+        ->with('show',$show);
     }
-    public function luu_chuyen_ds(Request $r)
+    public function luu_chuyen_ds(Request $r, $id)
     {
-    	# code...
+    	$nganh = $r->nganh;
+        DB::table('tbl_doansinh')->where("doansinh_id",$id)->update(["doansinh_level"=>$nganh]);
+        return redirect::to('show-chuyen-ds');
     }
     public function show_chuyen_truong()
     {
-    	# code...
+        $show = DB::table('tbl_user')->join("tbl_quyen","tbl_quyen.id","=","tbl_user.user_rank")->get();
+        $show_quyen = DB::table('tbl_quyen')->get();
+    	return view('thuyenchuyen.chuyen_truong')
+        ->with('show_quyen',$show_quyen)
+        ->with('show',$show);
     }
-    public function luu_chuyen_truong(Request $r)
+    public function luu_chuyen_truong(Request $r,$id)
     {
-    	# code...
+    	$nganh = $r->nganh;
+        DB::table('tbl_user')->where("user_id",$id)->update(["user_area"=>$nganh]);
+        return redirect::to('show-chuyen-truong');
+    }
+    public function luu_chuyen_truong2(Request $r,$id)
+    {
+        $cv = $r->cv;
+        DB::table('tbl_user')->where("user_id",$id)->update(["user_rank"=>$cv]);
+        return redirect::to('show-chuyen-truong');
     }
 }

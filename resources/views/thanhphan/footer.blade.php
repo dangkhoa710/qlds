@@ -1,3 +1,3 @@
 <div class="footer-wrap pd-20 mb-20 card-box">
-				DeskApp - Bootstrap 4 Admin Template By <a href="https://github.com/dropways" target="_blank">Ankit Hingarajiya</a>
+				<h5>Phát triển by DangKhoa: <a href="http://www.dangkhoa.xyz" target="_blank">www.dangkhoa.xyz</a></h5>
 </div>

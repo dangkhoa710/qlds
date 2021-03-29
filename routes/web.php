@@ -109,9 +109,10 @@ Route::get('logout',[HomeController::class,'logout']);
 Route::post('login-user',[HomeController::class,'login_user']);
 
 //chuyển
-Route::get('show-chuyen-truong',[ThuyenchuyenController::class,'show_chuyen_ds']);
-Route::post('luu-chuyen-ds',[ThuyenchuyenController::class,'luu_chuyen_ds']);
+Route::get('show-chuyen-ds',[ThuyenchuyenController::class,'show_chuyen_ds']);
+Route::post('luu-chuyen-ds/{id}',[ThuyenchuyenController::class,'luu_chuyen_ds']);
 
 Route::get('show-chuyen-truong',[ThuyenchuyenController::class,'show_chuyen_truong']);
-Route::post('luu-chuyen-truong',[ThuyenchuyenController::class,'luu_chuyen_truong']);
+Route::post('luu-chuyen-truong/{id}',[ThuyenchuyenController::class,'luu_chuyen_truong']);
+Route::post('luu-chuyen-truong2/{id}',[ThuyenchuyenController::class,'luu_chuyen_truong2']);
 

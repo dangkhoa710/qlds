@@ -46,7 +46,7 @@
 						<li><a href="{{URL::TO('show-ngansach')}}">Tổng quan</a></li>
 						<li><a href="{{URL::TO('thongtin-thu')}}">Thu</a></li>
 						<li><a href="{{URL::TO('thongtin-chi')}}">Chi</a></li>
-						<li><a href="{{URL::TO('thongke-ngansach')}}">Thống kê</a></li>
+						<!-- <li><a href="{{URL::TO('thongke-ngansach')}}">Thống kê</a></li> -->
 					</ul>
 				</li>
 
