@@ -56,9 +56,7 @@ class NgansachController extends Controller
 
     public function thongke_ngansach()
     {
-    	$laythang = DB::table('tbl_ngansach')->get();
-        return view('ngansach.thongke')
-        ->with('laythang',$laythang);
+    	
 
     }
     
