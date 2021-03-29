@@ -39,6 +39,7 @@
 								<input required class="form-control" placeholder="Chọn giờ" type="time" name="time1">
 							</div>
 						</div>
+						
 						<div class="form-group row">
 							<label class="col-sm-12 col-md-2 col-form-label">Thời gian KẾT THÚC</label>
 							<div class="col-sm-12 col-md-10">

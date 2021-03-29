@@ -11,12 +11,34 @@ use File;
 
 class DiemdanhController extends Controller
 {
-   public function show_diemdanh_truong(){
-   	# code...
+   public function show_diemdanh_truong(){  	  
+
+      $show_truong = DB::table('tbl_user')->get();
+      
+      $lay_thu = Carbon::now('Asia/Ho_Chi_Minh')->addDays(4)->format('l');
+
+      $st = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
+      return view('diemdanh.show_diemdanh_truong')
+      ->with('show_truong',$show_truong)
+      ->with('st',$st)
+      ->with('lay_thu',$lay_thu);
+
    }
 
    public function diemdanh_truong(Request $r){
-  	# code...
+      $data = array();
+  	
+      $j ="";
+      $dd=$r->diemdanh;
+      foreach ($dd as $key => $value) {
+         echo $j=$j.$value.",";
+      }
+      $data['diemdanh_amount'] = $j;
+      $data['diemdanh_describe'] = $r->day;
+      $data['created_at'] = Carbon::now('Asia/Ho_Chi_Minh')->toDateString();
+      $data['diemdanh_level']=1;
+      DB::table('tbl_diemdanh')->insert($data);
+      return redirect::to('show-diemdanh-truong');
    }
 
    public function show_diemdanh_ds(){
