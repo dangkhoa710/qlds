@@ -21,6 +21,7 @@
 
 
 				<div class="pd-20 card-box mb-30">
+					@if($a=="0")
 					<div class="clearfix mb-20">
 						<div class="pull-left">
 							@if($lay_thu=="Sunday")
@@ -67,7 +68,15 @@
 						</div>
 					</div>
 					</form>
-					
+					@else
+					<div class="clearfix mb-20">
+						<div class="pull-left">
+							<h4>
+								Hôm nay bạn đã điểm danh rồi.
+							</h4>
+						</div>
+					</div>
+					@endif
 				</div>
 
 				
