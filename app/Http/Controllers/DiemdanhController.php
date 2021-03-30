@@ -111,5 +111,49 @@ class DiemdanhController extends Controller
       return redirect::to('show-diemdanh-ds');
       }  
    }
+   public function thongke_diemdanh()
+   {
+      $a = DB::table('tbl_user')->get();
+      $ds = DB::table("tbl_doansinh")->get();
+      return view('diemdanh.thongke_diemdanh')
+      ->with('ds',$ds)
+      ->with('a',$a);
+   }
+   public function thongke_diemdanh_chitiet_truong($id){
+   
+      $dem_t5=0; //biến đếm thứ 5 trong tháng
+
+      echo "Tháng 3 -2021 ";
+
+      $lay_nsh5 = DB::table('tbl_giosinhhoat')->where("thu","Thursday")->where('tinhtrang',1)->get();
+
+      foreach($lay_nsh5 as $key => $value){
+         $lt = (int)(substr($value->ngaysinhhoat,5,2)); //03->ép kiểu int là 3
+         $ln = (int)(substr($value->ngaysinhhoat,0,4));
+         if(($lt=="3")&($ln=="2021"))
+         {
+         $dem_t5++;
+         }
+
+      }
+      echo "có $dem_t5 buổi sinh hoạt vào thứ năm <br>";
+
+      $dem_t8=0; //biến đếm thứ 5 trong tháng
+
+      echo "Tháng 3 - 2021 ";
+
+      $lay_nsh8 = DB::table('tbl_giosinhhoat')->where("thu","Sunday")->where('tinhtrang',1)->get();
+
+      foreach($lay_nsh8 as $key => $value){
+         $lt = (int)(substr($value->ngaysinhhoat,5,2)); //03->ép kiểu int là 3
+         $ln = (int)(substr($value->ngaysinhhoat,0,4));
+         if(($lt=="3")&($ln=="2021"))
+         {
+         $dem_t8++;
+         }
+
+      }
+      echo "có $dem_t8 buổi sinh hoạt vào Chủ nhật<br>";
+   }
 
 }
