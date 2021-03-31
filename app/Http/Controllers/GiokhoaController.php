@@ -50,9 +50,44 @@ class GiokhoaController extends Controller
         $results = DB::table('tbl_giokhoa')->insert($data);
 
         if($results){
-            // Session::put('message','Thành công !');
+            Session::put('message','Thành công !');
             return Redirect::to('show-phanconggiokhoa');
         }
+    }
+    public function sua_phanconggiokhoa($id)
+    {   
+        $lg = session::get('user_id');
+        $lay_nganh =  DB::table('tbl_user')->where('user_id',$lg)->first();
+    
+
+        $lay_truong = DB::table('tbl_user')->where('user_area',$lay_nganh->user_area)->get();
+        
+
+        $show = DB::table('tbl_giokhoa')->where('giokhoa_id',$id)->first();
+
+        return view('giokhoa.sua-giokhoa')
+        ->with('show',$show)
+        ->with('lay_truong',$lay_truong);
+    }
+
+    public function capnhat_phanconggiokhoa(Request $r)
+    {
+        $data = array();
+        
+        $data['giokhoa_gio'] = $r->time1;
+        $data['giokhoa_ketthuc'] = $r->time2;
+        $data['giokhoa_content'] = $r->content;
+        $data['user_id'] = $r->id;
+        $data['giokhoa_ghichu'] = $r->note;
+        $data['giokhoa_nganh'] = $r->nganh;
+
+        $results = DB::table('tbl_giokhoa')->where('giokhoa_id',$r->idgk)->update($data);
+
+        if($results){
+            Session::put('message','Thành công !');
+            return Redirect::to('show-phanconggiokhoa');}
+        
+
     }
 
 }	

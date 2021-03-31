@@ -39,6 +39,7 @@
 									<th scope="col">Tên giờ khóa</th>
 									<th scope="col">Phân công</th>
 									<th scope="col">Ngành</th>
+									<th></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -50,6 +51,7 @@
 									<td>{{$s2->giokhoa_content}}</td>
 									<td>{{$s2->user_fullname}}</td>
 									<td>{{$s2->giokhoa_nganh}}</td>
+									<td><a href="{{URL::TO('sua-phanconggiokhoa/'.$s2->giokhoa_id)}}" class="btn btn-info text-light">Sửa</a></td>
 								</tr>
 								@endif
 								@endforeach
@@ -64,6 +66,7 @@
 									<td>{{$s2->giokhoa_content}}</td>
 									<td>{{$s2->user_fullname}}</td>
 									<td>{{$s2->giokhoa_nganh}}</td>
+									<td><a href="{{URL::TO('sua-phanconggiokhoa/'.$s2->giokhoa_id)}}" class="btn btn-info text-light">Sửa</a></td>
 								</tr>
 								@endif
 								@endforeach
@@ -78,6 +81,7 @@
 									<td>{{$s2->giokhoa_content}}</td>
 									<td>{{$s2->user_fullname}}</td>
 									<td>{{$s2->giokhoa_nganh}}</td>
+									<td><a href="{{URL::TO('sua-phanconggiokhoa/'.$s2->giokhoa_id)}}" class="btn btn-info text-light">Sửa</a></td>
 								</tr>
 								@endif
 								@endforeach
@@ -92,6 +96,7 @@
 									<td>{{$s2->giokhoa_content}}</td>
 									<td>{{$s2->user_fullname}}</td>
 									<td>{{$s2->giokhoa_nganh}}</td>
+									<td><a href="{{URL::TO('sua-phanconggiokhoa/'.$s2->giokhoa_id)}}" class="btn btn-info text-light">Sửa</a></td>
 								</tr>
 								@endif
 								@endforeach

@@ -33,6 +33,7 @@
 				</div>
 				<!-- Responsive tables Start -->
 				<div class="pd-20 card-box mb-30">
+					
 					<div class="clearfix mb-20">
 						<div class="pull-left">
 							<h4 class="text-blue h4">Huynh trưởng</h4>
@@ -58,24 +59,10 @@
 									<th>{{$t->user_fullname}}</th>
 									<td>{{$t->user_dob}}</td>
 									<td>{{$t->user_phone}}</td>
-									@if($t->user_level=="1")
 									<td>Huynh trưởng</td>
-									@endif
-									@if(($t->user_rank)=="1")
-									<td>Đoàn trưởng</td>
-									@elseif(($t->user_rank)=="2")
-									<td>Đoàn phó</td>
-									@elseif(($t->user_rank)=="4")
-									<td>Thư kí</td>
-									@elseif(($t->user_rank)=="5")
-									<td>Trưởng Ngành</td>
-									@elseif(($t->user_rank)=="6")
-									<td>Phó Ngành</td>
-									@elseif(($t->user_rank)=="7")
-									<td>Huynh Trưởng</td>
-									@endif
+									<td>{{$t->quyen}}</td>
 									<td>{{$t->user_area}}</td>
-									<td><span class="badge badge-primary">Primary</span></td>
+									<td><a href="{{URL::TO('suathongtin-truong/'.$t->user_id)}}" class="btn btn-info text-light">Sửa</a><a href="{{URL::TO('xoa-thongtin-truong/'.$t->user_id)}}" class="btn btn-danger text-light" onclick="return confirm('Bạn có chắc là muốn xóa mục này này ko ?')">Xóa</a></td>
 								</tr>
 								@endif
 								@endforeach

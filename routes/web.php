@@ -46,6 +46,9 @@ Route::get('thongke-diemdanh-chitiet-doansinh/{id}',[DiemdanhController::class,'
 Route::get('show-diemdanh-truong',[DiemdanhController::class,'show_diemdanh_truong']);
 Route::post('diemdanh-truong',[DiemdanhController::class,'diemdanh_truong']);
 Route::get('xem-thongtin-truong',[TruongController::class,'xem_thongtin_truong']);
+Route::get('suathongtin-truong/{id}',[TruongController::class,'suathongtin_truong']);
+Route::post('capnhat-thongtin-truong',[TruongController::class,'capnhat_thongtin_truong']);
+Route::get('xoa-thongtin-truong/{id}',[TruongController::class,'xoa_thongtin_truong']);
 
 //đoàn sinh có gì ?
 Route::get('xem-thongtin-ds',[DoansinhController::class,'xem_thongtin_ds']);
@@ -60,7 +63,7 @@ Route::get('show-phanconggiokhoa',[GiokhoaController::class,'show_phanconggiokho
 Route::get('them-phanconggiokhoa',[GiokhoaController::class,'them_phanconggiokhoa']);
 Route::post('luu-phanconggiokhoa',[GiokhoaController::class,'luu_phanconggiokhoa']);
 
-Route::get('sua-phanconggiokhoa',[GiokhoaController::class,'sua_phanconggiokhoa']);
+Route::get('sua-phanconggiokhoa/{id}',[GiokhoaController::class,'sua_phanconggiokhoa']);
 Route::post('capnhat-phanconggiokhoa',[GiokhoaController::class,'capnhat_phanconggiokhoa']);
 
 
