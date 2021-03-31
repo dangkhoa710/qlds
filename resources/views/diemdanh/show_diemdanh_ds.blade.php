@@ -21,6 +21,7 @@
 
 
 				<div class="pd-20 card-box mb-30">
+					@if(($lay_thu=="Sunday")OR($lay_thu=="Thurday"))
 					@if(($a->$laynganh)=="")
 					<div class="clearfix mb-20">
 						<div class="pull-left">
@@ -72,6 +73,9 @@
 					<div class="clearfix md-20">
 						<h4>Hôm nay bạn đã điểm danh rồi</h4>
 					</div>
+					@endif
+					@else
+					<h4 class="h4"> Hôm nay không điểm danh</h4>
 					@endif
 				</div>
 

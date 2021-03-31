@@ -61,6 +61,8 @@ class HomeController extends Controller
                     // return view($gio_tuantoi5);
                     DB::table('tbl_giosinhhoat')->insert(['ngaysinhhoat'=> $gio_tuantoi5,'thu'=> $thu_tuantoi5,'tinhtrang'=>0]);
                     DB::table('tbl_giosinhhoat')->insert(['ngaysinhhoat'=> $gio_tuantoi8,'thu'=> $thu_tuantoi8,'tinhtrang'=>0]);
+                    DB::table('tbl_diemdanh')->insert(['created_at'=> $gio_tuantoi5,'thu'=> $thu_tuantoi5]);
+                    DB::table('tbl_diemdanh')->insert(['created_at'=> $gio_tuantoi8,'thu'=> $thu_tuantoi8]);
                 }
 
                 $nam = DB::table('tbl_giosinhhoat')->where('thu','Thursday')->orderby('giosinhhoat_id','desc')->first();

@@ -134,16 +134,15 @@ class DiemdanhController extends Controller
 
       //______________
       //lấy số giờ sinh hoạt của trưởng thực tế
-
       $a = DB::table('tbl_user')->get();
+      $tq0=0;
+      foreach($a as $key => $dsfs){$tq0++;}
       if($thu=="8"){
-      $g = DB::table('tbl_diemdanh')->where('thu','Sunday')->get();
+      $g = DB::table('tbl_diemdanh')->where('thu','Sunday')->where('diemdanh_level',1)->get();
       }else{
-      $g = DB::table('tbl_diemdanh')->where('thu','Thursday')->get();
+      $g = DB::table('tbl_diemdanh')->where('thu','Thursday')->where('diemdanh_level',1)->get();
       }
-
       $b = "";
-
       foreach ($g as $key => $a2) {
          $m = substr($a2->created_at,5,2);//lấy tháng điểm danh
          $y = substr($a2->created_at,0,4); //lấy năm điểm danh
@@ -151,17 +150,52 @@ class DiemdanhController extends Controller
             $b = $b.$a2->diemdanh_amount;
          }
       }
-      
       $b2 = explode(",",$b);
+      $tq=-1;
+      foreach($b2 as $key => $sfsdfsd){$tq++;}
+      
+      if($dem_t!=0){
+      $pt = round(($tq/($dem_t*$tq0)*100),2);}
+      else{$pt=0;}
 
-      $ds = DB::table("tbl_doansinh")->get();    
+      //------------------------------------
+      //lấy số giờ sinh hoạt của đoàn sinh thực tế
+      $ds = DB::table("tbl_doansinh")->get();
+      $tq00 = 0;
+      foreach($ds as $key => $dfssfs){$tq00++;}
+      if($thu=="8"){
+      $g2 = DB::table('tbl_diemdanh')->where('thu','Sunday')->where('diemdanh_level',0)->get();
+      }else{
+      $g2 = DB::table('tbl_diemdanh')->where('thu','Thursday')->where('diemdanh_level',0)->get();
+      }
+      $bds = "";
+      
+      foreach ($g2 as $key => $a22) {
+         $m2 = substr($a2->created_at,5,2);//lấy tháng điểm danh
+         $y2 = substr($a2->created_at,0,4); //lấy năm điểm danh
+         if(($m2==$thang)&($y2==$nam)){
+            $bds = $bds.$a22->diemdanh_amount;
+            $tq++;
+         }
+      }
+      $b22 = explode(",",$bds);
+      $tq1=-1;
+      foreach($b22 as $key => $sssd){$tq1++;}
+      if($dem_t!=0){
+      $pt2 = round(($tq1/($dem_t*$tq00)*100),2);}
+      else{$pt2=0;}
+      
+      
       return view('diemdanh.thongke_diemdanh')
       ->with('ds',$ds)
       ->with('a',$a)
       ->with('b2',$b2)
+      ->with('b22',$b22)
       ->with('thang',$thang)
       ->with('nam',$nam)
       ->with('thu',$thu)
+      ->with('pt',$pt)
+      ->with('pt2',$pt2)
       ->with('dem_t',$dem_t);
    }
    public function thongke_diemdanh_chitiet_truong($id){
@@ -199,6 +233,14 @@ class DiemdanhController extends Controller
 
       }
       echo "có $dem_t8 buổi sinh hoạt vào Chủ nhật<br>";
+   }
+   public function xuli_thongke_diemdanh(Request $r)
+   {
+      $t = $r->thang;
+      $n = $r->nam;
+      $tt= $r->thu;
+      return redirect::to("thongke-diemdanh/$t/$n/$tt");
+      // echo "$t và $n và $tt";
    }
 
 }
