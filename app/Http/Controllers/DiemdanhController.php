@@ -111,13 +111,58 @@ class DiemdanhController extends Controller
       return redirect::to('show-diemdanh-ds');
       }  
    }
-   public function thongke_diemdanh()
+   public function thongke_diemdanh($thang,$nam,$thu)
    {
+      // lấy số ngày sinh hoạt trong 1 tháng bất kì
+
+      $dem_t=0; //biến đếm thứ trong tháng
+      if($thu=="8"){
+         $lay_nsh = DB::table('tbl_giosinhhoat')->where("thu","Sunday")->where('tinhtrang',1)->get();
+      }else{
+         $lay_nsh = DB::table('tbl_giosinhhoat')->where("thu","Thursday")->where('tinhtrang',1)->get();
+      }
+
+         foreach($lay_nsh as $key => $value){
+            $lt = substr($value->ngaysinhhoat,5,2); //03->ép kiểu int là 3
+            $ln = substr($value->ngaysinhhoat,0,4);
+            if(($lt==$thang)&($ln==$nam))
+            {
+            $dem_t++;
+            }
+
+         }
+
+      //______________
+      //lấy số giờ sinh hoạt của trưởng thực tế
+
       $a = DB::table('tbl_user')->get();
-      $ds = DB::table("tbl_doansinh")->get();
+      if($thu=="8"){
+      $g = DB::table('tbl_diemdanh')->where('thu','Sunday')->get();
+      }else{
+      $g = DB::table('tbl_diemdanh')->where('thu','Thursday')->get();
+      }
+
+      $b = "";
+
+      foreach ($g as $key => $a2) {
+         $m = substr($a2->created_at,5,2);//lấy tháng điểm danh
+         $y = substr($a2->created_at,0,4); //lấy năm điểm danh
+         if(($m==$thang)&($y==$nam)){
+            $b = $b.$a2->diemdanh_amount;
+         }
+      }
+      
+      $b2 = explode(",",$b);
+
+      $ds = DB::table("tbl_doansinh")->get();    
       return view('diemdanh.thongke_diemdanh')
       ->with('ds',$ds)
-      ->with('a',$a);
+      ->with('a',$a)
+      ->with('b2',$b2)
+      ->with('thang',$thang)
+      ->with('nam',$nam)
+      ->with('thu',$thu)
+      ->with('dem_t',$dem_t);
    }
    public function thongke_diemdanh_chitiet_truong($id){
    

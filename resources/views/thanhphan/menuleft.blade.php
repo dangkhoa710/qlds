@@ -86,7 +86,8 @@
 					<ul class="submenu">
 						<li><a href="{{url::to('show-diemdanh-truong')}}">Trưởng</a></li>
 						<li><a href="{{url::to('show-diemdanh-ds')}}">Đoàn sinh</a></li>
-						<li><a href="{{url::to('thongke-diemdanh')}}">Thống kê</a></li>
+						<?php $thang=date('m');$nam=date('Y');?>
+						<li><a href="{{url::to('thongke-diemdanh/'.$thang.'/'.$nam.'/8')}}">Thống kê</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">

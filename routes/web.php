@@ -35,7 +35,7 @@ Route::get('xuli-giosinhhoat/{param}',[GiosinhhoatController::class,'xuli_giosin
 //Điểm danh có gì vui ?
 Route::get('show-diemdanh-ds',[DiemdanhController::class,'show_diemdanh_ds']);
 Route::post('diemdanh-ds',[DiemdanhController::class,'diemdanh_ds']);
-Route::get('thongke-diemdanh',[DiemdanhController::class,'thongke_diemdanh']);
+Route::get('thongke-diemdanh/{thang}/{nam}/{thu}',[DiemdanhController::class,'thongke_diemdanh']);
 Route::get('thongke-diemdanh-chitiet-truong/{id}',[DiemdanhController::class,'thongke_diemdanh_chitiet_truong']);
 Route::get('thongke-diemdanh-chitiet-doansinh/{id}',[DiemdanhController::class,'thongke_diemdanh_chitiet_doansinh']);
 
