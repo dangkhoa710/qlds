@@ -53,12 +53,6 @@ class NgansachController extends Controller
         ->with('tong_lay_thu',$tlt)
         ->with('thongke',$tien);
     }
-
-    public function thongke_ngansach()
-    {
-    	
-
-    }
     
     public function thongtin_thu()
     {
@@ -88,20 +82,28 @@ class NgansachController extends Controller
         }
     }
 
-    public function suathongtin_thu()
+    public function suathongtin_thu($id)
     {
-    	# code...
+    	$show = DB::table('tbl_ngansach')->where('ngansach_id',$id)->first();
+        return view('ngansach.sua_thu')
+        ->with('show',$show);
     }
 
 
     public function capnhat_thongtin_thu(Request $r)
     {
-    	
+    	$results=DB::table('tbl_ngansach')->where('ngansach_id',$r->id)->update(['ngansach_amount'=>$r->amount,'ngansach_describe'=>$r->content]);
+        if($results){
+            Session::put('message','Thành công !');
+            return Redirect::to('thongtin-thu');
+        }
     }
 
-    public function xoa_thongtin_thu()
+    public function xoa_thongtin_thu($id)
     {
-    	# code...
+    	DB::table('tbl_ngansach')->where('ngansach_id',$id)->delete();
+        return redirect::to('thongtin-thu');
+    
     }
 
     public function thongtin_chi()
@@ -132,20 +134,28 @@ class NgansachController extends Controller
         }
     }
 
-    public function suathongtin_chi()
+    public function suathongtin_chi($id)
     {
-    	# code...
+    	$show = DB::table('tbl_ngansach')->where('ngansach_id',$id)->first();
+        return view('ngansach.sua_chi')
+        ->with('show',$show);
     }
 
 
     public function capnhat_thongtin_chi(Request $r)
     {
-    	# code...
+    	$results=DB::table('tbl_ngansach')->where('ngansach_id',$r->id)->update(['ngansach_amount'=>$r->amount,'ngansach_describe'=>$r->content]);
+        if($results){
+            Session::put('message','Thành công !');
+            return Redirect::to('thongtin-chi');
+        }
     }
 
-    public function xoa_thongtin_chi()
+    public function xoa_thongtin_chi($id)
     {
-    	# code...
+    	DB::table('tbl_ngansach')->where('ngansach_id',$id)->delete();
+        return redirect::to('thongtin-chi');
+    
     }
 
 }

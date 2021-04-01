@@ -43,19 +43,27 @@ class DoansinhController extends Controller
         }
     }
 
-    public function suathongtin_ds()
+    public function suathongtin_ds($id)
     {
-    	# code...
+    	$show = DB::table('tbl_doansinh')->where('doansinh_id',$id)->first();
+        return view('doansinh.suathongtin_ds')
+        ->with('show',$show);
     }
 
     public function capnhat_thongtin_ds(Request $r)
     {
-    	# code...
+    	 DB::table('tbl_doansinh')->where('doansinh_id',$r->id)->update([
+        'doansinh_fullname'=>$r->fullname,
+        'doansinh_phone'=>$r->phone,
+        'doansinh_dob'=>$r->dob
+            ]);
+        return redirect::to('xem-thongtin-ds');
     }
 
-    public function xoa_thongtin_ds()
+    public function xoa_thongtin_ds($id)
     {
-    	# code...
+    	DB::table('tbl_doansinh')->where('doansinh_id',$id)->delete();
+        return redirect::to('xem-thongtin-ds');
     }
 
 

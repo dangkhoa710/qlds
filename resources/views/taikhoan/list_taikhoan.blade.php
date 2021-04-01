@@ -70,7 +70,7 @@
 									<td>{{$t->user_rank}}</td>
 									<td>{{$t->user_area}}</td>
 									<td>{{$t->quyen}}</td>
-									<td><span class="badge badge-primary">Primary</span></td>
+									<td>{{$t->created_at}}</td>
 								</tr>
 								
 								@endforeach

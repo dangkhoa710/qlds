@@ -157,6 +157,7 @@ class HomeController extends Controller
                 Session::put('user_fullname',$result->user_fullname);
                 Session::put('user_id',$result->user_id);
                 Session::put('user_permision',$result->user_permision);
+                Session::put('user_area',$result->user_area);
                 return Redirect::to('/dashboard');
 	            }   
     	}else{
@@ -169,6 +170,7 @@ class HomeController extends Controller
 		Session::put('user_name',null);
 		Session::put('user_id',null);
 		Session::put('user_permision',null);
+        Session::put('user_area',null);
 		return Redirect::to('/');
 
 	}
@@ -190,7 +192,8 @@ class HomeController extends Controller
         Session::put('user_fullname',$a->fullname);
         Session::put('user_id',$a->id);
         Session::put('user_permision',$a->permision);
-
+        Session::put('user_area',$result->user_area);
+        
         return Redirect::to('/dashboard');
 	}
 

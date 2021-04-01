@@ -66,7 +66,7 @@
 									@elseif($t->doansinh_rank=="0")
 									<td>Đoàn sinh</td>
 									@endif
-									<td><span class="badge badge-primary">Primary</span></td>
+									<td><a href="{{URL::TO('suathongtin-ds/'.$t->doansinh_id)}}" class="btn btn-info text-light">Sửa</a><a href="{{URL::TO('xoa-thongtin-ds/'.$t->doansinh_id)}}" class="btn btn-danger text-light" onclick="return confirm('Bạn có chắc là muốn xóa mục này này ko ?')">Xóa</a></td>
 								</tr>
 								@endif
 								@endforeach
@@ -109,7 +109,7 @@
 									@elseif($t->doansinh_rank=="0")
 									<td>Đoàn sinh</td>
 									@endif
-									<td><span class="badge badge-primary">Primary</span></td>
+									<td><a href="{{URL::TO('suathongtin-ds/'.$t->doansinh_id)}}" class="btn btn-info text-light">Sửa</a><a href="{{URL::TO('xoa-thongtin-ds/'.$t->doansinh_id)}}" class="btn btn-danger text-light" onclick="return confirm('Bạn có chắc là muốn xóa mục này này ko ?')">Xóa</a></td>
 								</tr>
 								@endif
 								@endforeach
@@ -152,7 +152,7 @@
 									@elseif($t->doansinh_rank=="0")
 									<td>Đoàn sinh</td>
 									@endif
-									<td><span class="badge badge-primary">Primary</span></td>
+									<td><a href="{{URL::TO('suathongtin-ds/'.$t->doansinh_id)}}" class="btn btn-info text-light">Sửa</a><a href="{{URL::TO('xoa-thongtin-ds/'.$t->doansinh_id)}}" class="btn btn-danger text-light" onclick="return confirm('Bạn có chắc là muốn xóa mục này này ko ?')">Xóa</a></td>
 								</tr>
 								@endif
 								@endforeach
@@ -195,7 +195,7 @@
 									@elseif($t->doansinh_rank=="0")
 									<td>Đoàn sinh</td>
 									@endif
-									<td><span class="badge badge-primary">Primary</span></td>
+									<td><a href="{{URL::TO('suathongtin-ds/'.$t->doansinh_id)}}" class="btn btn-info text-light">Sửa</a><a href="{{URL::TO('xoa-thongtin-ds/'.$t->doansinh_id)}}" class="btn btn-danger text-light" onclick="return confirm('Bạn có chắc là muốn xóa mục này này ko ?')">Xóa</a></td>
 								</tr>
 								@endif
 								@endforeach

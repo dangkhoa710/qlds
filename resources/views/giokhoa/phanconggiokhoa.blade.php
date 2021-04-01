@@ -2,7 +2,7 @@
 @section('content')
 	<div class="main-container">
 		<div class="pd-ltr-20 xs-pd-20-10">
-
+			<?php $laynganh = Session::get('user_area');?>
 			<div class="min-height-200px">
 				<div class="page-header">
 					<div class="row">
@@ -39,12 +39,13 @@
 									<th scope="col">Tên giờ khóa</th>
 									<th scope="col">Phân công</th>
 									<th scope="col">Ngành</th>
-									<th></th>
+									<th scope="col">Tác vụ</th>
 								</tr>
 							</thead>
 							<tbody>
+
 								@foreach($show as $key => $s2)
-								@if(($s->ngaysinhhoat)==($s2->giokhoa_ngay)&($s2->giokhoa_nganh=="au"))		
+								@if(($s->ngaysinhhoat)==($s2->giokhoa_ngay)&($s2->giokhoa_nganh=="au")&(($laynganh=="au")||($laynganh=="0")))		
 								<tr class="table-success">
 									<td>{{$s2->giokhoa_gio}}</td>
 									<td>{{$s2->giokhoa_ketthuc}}</td>
@@ -59,7 +60,7 @@
 								<tr><td></td><td></td><td></td><td></td><td></td></tr>
 
 								@foreach($show as $key => $s2)
-								@if(($s->ngaysinhhoat)==($s2->giokhoa_ngay)&($s2->giokhoa_nganh=="thieu"))		
+								@if(($s->ngaysinhhoat)==($s2->giokhoa_ngay)&($s2->giokhoa_nganh=="thieu")&(($laynganh=="thieu")||($laynganh=="0")))		
 								<tr class="table-primary">
 									<td>{{$s2->giokhoa_gio}}</td>
 									<td>{{$s2->giokhoa_ketthuc}}</td>
@@ -74,7 +75,7 @@
 								<tr><td></td><td></td><td></td><td></td><td></td></tr><tr></tr>
 						
 								@foreach($show as $key => $s2)
-								@if(($s->ngaysinhhoat)==($s2->giokhoa_ngay)&($s2->giokhoa_nganh=="nghia"))		
+								@if(($s->ngaysinhhoat)==($s2->giokhoa_ngay)&($s2->giokhoa_nganh=="nghia")&(($laynganh=="nghia")||($laynganh=="0")))	
 								<tr class="table-warning">
 									<td>{{$s2->giokhoa_gio}}</td>
 									<td>{{$s2->giokhoa_ketthuc}}</td>
@@ -89,7 +90,7 @@
 								<tr><td></td><td></td><td></td><td></td><td></td></tr>
 							
 								@foreach($show as $key => $s2)
-								@if(($s->ngaysinhhoat)==($s2->giokhoa_ngay)&($s2->giokhoa_nganh=="hiep"))		
+								@if(($s->ngaysinhhoat)==($s2->giokhoa_ngay)&($s2->giokhoa_nganh=="hiep")&(($laynganh=="hiep")||($laynganh=="0")))	
 								<tr class="table-active">
 									<td>{{$s2->giokhoa_gio}}</td>
 									<td>{{$s2->giokhoa_ketthuc}}</td>

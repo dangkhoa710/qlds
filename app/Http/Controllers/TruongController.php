@@ -23,7 +23,7 @@ class TruongController extends Controller
     	return view('user.suathongtin_user')
         ->with('show',$show);
     }
-    // onclick="return confirm('Bạn có chắc là muốn xóa tin này ko ?')"
+    
     public function capnhat_thongtin_truong(Request $r)
     {
         DB::table('tbl_user')->where('user_id',$r->id)->update([

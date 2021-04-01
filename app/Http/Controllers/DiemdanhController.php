@@ -24,7 +24,6 @@ class DiemdanhController extends Controller
       ->with('show_truong',$show_truong)
       ->with('st',$st)
       ->with('lay_thu',$lay_thu);
-
    }
 
    public function diemdanh_truong(Request $r){
@@ -56,8 +55,6 @@ class DiemdanhController extends Controller
 
       $a = DB::table('tbl_diemdanh')->where('created_at',$st)->where('diemdanh_level',"0")->first();
       
-
-
       return view('diemdanh.show_diemdanh_ds')
       ->with('laynganh',$laynganh->user_area)
       ->with('show_ds',$show_ds)

@@ -54,9 +54,9 @@ Route::get('xoa-thongtin-truong/{id}',[TruongController::class,'xoa_thongtin_tru
 Route::get('xem-thongtin-ds',[DoansinhController::class,'xem_thongtin_ds']);
 Route::get('themthongtin-ds',[DoansinhController::class,'themthongtin_ds']);
 Route::post('/luu-thongtin-ds',[DoansinhController::class,'luu_thongtin_ds']);
-Route::get('suathongtin-ds',[DoansinhController::class,'suathongtin_ds']);
+Route::get('suathongtin-ds/{id}',[DoansinhController::class,'suathongtin_ds']);
 Route::post('/capnhat-thongtin-ds',[DoansinhController::class,'capnhat_thongtin_ds']);
-Route::get('xoa-thongtin-ds',[DoansinhController::class,'xoa_thongtin_ds']);
+Route::get('xoa-thongtin-ds/{id}',[DoansinhController::class,'xoa_thongtin_ds']);
 
 //giờ khóa phân chia như nào ?
 Route::get('show-phanconggiokhoa',[GiokhoaController::class,'show_phanconggiokhoa']);
@@ -76,6 +76,7 @@ Route::get('suathongtin-kehoach',[KehoachController::class,'suathongtin_kehoach'
 Route::post('/capnhat-thongtin-kehoach',[KehoachController::class,'capnhat_thongtin_kehoach']);
 Route::get('xoa-thongtin-kehoach',[KehoachController::class,'xoa_thongtin_kehoach']);
 
+//__________________________________________________________________________________
 
 Route::get('thongtin-tintuc',[TintucController::class,'thongtin_tintuc']);
 Route::get('themthongtin-tintuc',[TintucController::class,'themthongtin_tintuc']);
@@ -93,16 +94,16 @@ Route::get('thongtin-thu',[NgansachController::class,'thongtin_thu']);
 
 Route::get('themthongtin-thu',[NgansachController::class,'themthongtin_thu']);
 Route::post('luu-thongtin-thu',[NgansachController::class,'luu_thongtin_thu']);
-Route::get('suathongtin-thu',[NgansachController::class,'suathongtin_thu']);
+Route::get('suathongtin-thu/{id}',[NgansachController::class,'suathongtin_thu']);
 Route::post('capnhat-thongtin-thu',[NgansachController::class,'capnhat_thongtin_thu']);
-Route::get('xoa-thongtin-thu',[NgansachController::class,'xoa_thongtin_thu']);
+Route::get('xoa-thongtin-thu/{id}',[NgansachController::class,'xoa_thongtin_thu']);
 
 Route::get('thongtin-chi',[NgansachController::class,'thongtin_chi']);
 Route::get('themthongtin-chi',[NgansachController::class,'themthongtin_chi']);
 Route::post('luu-thongtin-chi',[NgansachController::class,'luu_thongtin_chi']);
-Route::get('suathongtin-chi',[NgansachController::class,'suathongtin_chi']);
+Route::get('suathongtin-chi/{id}',[NgansachController::class,'suathongtin_chi']);
 Route::post('capnhat-thongtin-chi',[NgansachController::class,'capnhat_thongtin_chi']);
-Route::get('xoa-thongtin-chi',[NgansachController::class,'xoa_thongtin_chi']);
+Route::get('xoa-thongtin-chi/{id}',[NgansachController::class,'xoa_thongtin_chi']);
 
 //quản lí tài khoản
 Route::get('show-taikhoan',[TaikhoanController::class,'show_taikhoan']);

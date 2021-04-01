@@ -18,11 +18,14 @@
 								</ol>
 							</nav>
 						</div>
+						<?php $layquyen = Session::get('user_permision');?>
+						@if($layquyen=8)
 						<div class="col-md-6 col-sm-12 text-right">
 							<a class="btn btn-primary" href="{{URL::TO('themthongtin-thu')}}" role="button">
 								Thêm khoản thu
 							</a>
 						</div>
+						@endif
 					</div>
 				</div>
 				<!-- Responsive tables Start -->
@@ -40,6 +43,7 @@
 									<th scope="col">Số tiền</th>
 									<th scope="col">Tình trạng</th>
 									<th scope="col">Ngày tạo</th>
+									<th scope="col"></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -52,7 +56,11 @@
 									@else
 									<td>Chi</td>
 									@endif
-									<td>{{$s->created_at}}</td>					
+									<td>{{$s->created_at}}</td>
+									
+									@if(($layquyen=="5")Or($layquyen=="6"))
+									<td><a href="{{URL::TO('suathongtin-thu/'.$s->ngansach_id)}}" class="btn btn-info text-light">Sửa</a><a href="{{URL::TO('xoa-thongtin-thu/'.$s->ngansach_id)}}" class="btn btn-danger text-light" onclick="return confirm('Bạn có chắc là muốn xóa mục này này ko ?')">Xóa</a></td>	
+									@endif			
 								</tr>
 								@endforeach	
 							</tbody>
